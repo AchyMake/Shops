@@ -1,0 +1,254 @@
+title: '&0Farmer'
+size: 27
+items:
+  coins:
+    slot: 27
+    display:
+      type: player_head
+      custom: '%player%'
+      amount: 1
+      name: '&f%essentials_display_name%'
+      lore:
+        - '&7coins&f:&a %essentials_account%'
+  barrier:
+    slot: 23
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  carrot:
+    slot: 3
+    display:
+      type: carrot
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: carrot
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: carrot
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  potato:
+    slot: 4
+    display:
+      type: potato
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: potato
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: potato
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  melon_slice:
+    slot: 5
+    display:
+      type: melon_slice
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: melon_slice
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: melon_slice
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  bamboo:
+    slot: 6
+    display:
+      type: bamboo
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.125'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.125
+      price-type: item
+      price:
+        type: bamboo
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.125
+      price-type: itemall
+      price:
+        type: bamboo
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  egg:
+    slot: 7
+    display:
+      type: egg
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: egg
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: egg
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  wheat:
+    slot: 12
+    display:
+      type: wheat
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: wheat
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: wheat
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  beetroot:
+    slot: 13
+    display:
+      type: beetroot
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: beetroot
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: beetroot
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  pumpkin:
+    slot: 14
+    display:
+      type: pumpkin
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: pumpkin
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: pumpkin
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  sugar_cane:
+    slot: 15
+    display:
+      type: sugar_cane
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: sugar_cane
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: sugar_cane
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  cocoa_beans:
+    slot: 16
+    display:
+      type: cocoa_beans
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: cocoa_beans
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: cocoa_beans
+      message: '&6You sold&f {price}&6 for&a {reward}'

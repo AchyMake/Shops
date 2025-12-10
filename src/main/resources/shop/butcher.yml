@@ -1,0 +1,139 @@
+title: '&0Butcher'
+size: 18
+items:
+  coins:
+    slot: 18
+    display:
+      type: player_head
+      custom: '%player%'
+      amount: 1
+      name: '&f%essentials_display_name%'
+      lore:
+        - '&7coins&f:&a %essentials_account%'
+  barrier:
+    slot: 14
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  rabbit:
+    slot: 3
+    display:
+      type: rabbit
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: rabbit
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: rabbit
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  chicken:
+    slot: 4
+    display:
+      type: chicken
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: chicken
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: chicken
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  mutton:
+    slot: 5
+    display:
+      type: mutton
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: mutton
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: mutton
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  beef:
+    slot: 6
+    display:
+      type: beef
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: beef
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: beef
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  porkchop:
+    slot: 7
+    display:
+      type: porkchop
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: porkchop
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: porkchop
+      message: '&6You sold&f {price}&6 for&a {reward}'

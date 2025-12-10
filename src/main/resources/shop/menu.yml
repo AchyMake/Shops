@@ -1,0 +1,99 @@
+title: '&0Menu'
+size: 18
+items:
+  butcher:
+    slot: 2
+    display:
+      type: beef
+      amount: 1
+      name: '&fButcher'
+      lore:
+        - '&7Go to Butcher Shop'
+    left:
+      reward-type: shop
+      reward: butcher
+      price-type: nothing
+  hunter:
+    slot: 3
+    display:
+      type: bow
+      amount: 1
+      name: '&fHunter'
+      lore:
+        - '&7Go to Hunter Shop'
+    left:
+      reward-type: shop
+      reward: hunter
+      price-type: nothing
+  fisherman:
+    slot: 4
+    display:
+      type: fishing_rod
+      amount: 1
+      name: '&fFisherman'
+      lore:
+        - '&7Go to Fisherman Shop'
+    left:
+      reward-type: shop
+      reward: fisherman
+      price-type: nothing
+  lumberjack:
+    slot: 5
+    display:
+      type: iron_axe
+      amount: 1
+      name: '&fLumberjack'
+      lore:
+        - '&7Go to Lumberjack Shop'
+    left:
+      reward-type: shop
+      reward: lumberjack
+      price-type: nothing
+  miner:
+    slot: 6
+    display:
+      type: iron_pickaxe
+      amount: 1
+      name: '&fMiner'
+      lore:
+        - '&7Go to Miner Shop'
+    left:
+      reward-type: shop
+      reward: miner
+      price-type: nothing
+  farmer:
+    slot: 7
+    display:
+      type: iron_hoe
+      amount: 1
+      name: '&fFarmer'
+      lore:
+        - '&7Go to Farmer Shop'
+    left:
+      reward-type: shop
+      reward: farmer
+      price-type: nothing
+  shepherd:
+    slot: 8
+    display:
+      type: shears
+      amount: 1
+      name: '&fShepherd'
+      lore:
+        - '&7Go to Shepherd Shop'
+    left:
+      reward-type: shop
+      reward: shepherd
+      price-type: nothing
+  test:
+    slot: 14
+    display:
+      type: nether_star
+      amount: 1
+      name: '&fTest shop'
+      lore:
+        - '&7Go to Test Shop'
+    left:
+      reward-type: shop
+      reward: test
+      price-type: nothing

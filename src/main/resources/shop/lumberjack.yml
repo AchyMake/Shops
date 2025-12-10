@@ -1,0 +1,231 @@
+title: '&0Lumberjack'
+size: 18
+items:
+  coins:
+    slot: 18
+    display:
+      type: player_head
+      custom: '%player%'
+      amount: 1
+      name: '&f%essentials_display_name%'
+      lore:
+        - '&7coins&f:&a %essentials_account%'
+  barrier:
+    slot: 14
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  oak_log:
+    slot: 1
+    display:
+      type: oak_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: oak_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: oak_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  spruce_log:
+    slot: 2
+    display:
+      type: spruce_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: spruce_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: spruce_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  birch_log:
+    slot: 3
+    display:
+      type: birch_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: birch_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: birch_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  jungle_log:
+    slot: 4
+    display:
+      type: jungle_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: jungle_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: jungle_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  acacia_log:
+    slot: 5
+    display:
+      type: acacia_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: acacia_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: acacia_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  dark_oak_log:
+    slot: 6
+    display:
+      type: dark_oak_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: dark_oak_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: dark_oak_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  mangrove_log:
+    slot: 7
+    display:
+      type: mangrove_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: mangrove_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: mangrove_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  cherry_log:
+    slot: 8
+    display:
+      type: cherry_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: cherry_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: cherry_log
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  pale_oak_log:
+    slot: 9
+    display:
+      type: pale_oak_log
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: pale_oak_log
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: pale_oak_log
+      message: '&6You sold&f {price}&6 for&a {reward}'

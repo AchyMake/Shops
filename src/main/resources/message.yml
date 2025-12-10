@@ -1,0 +1,18 @@
+error:
+  target:
+    invalid: '{target}&c is currently offline'
+  shop:
+    invalid: '{shop}&c does not exist'
+commands:
+  shop:
+    exempt: '&cYou are not allowed to open shop for&f {target}'
+insufficient-funds:
+  shop: '&cYou do not have&a {price}&c to open&f {reward}'
+  command: '&cYou do not have&a {price}&c to receive commands'
+  item: '&cYou do not have&a {price}&c to receive&f {reward}'
+  money: '&cYou do not have&a {price}&c to receive&a {reward}'
+insufficient-items:
+  shop: '&cYou do not have any&f {price}&c to open&f {reward}'
+  command: '&cYou do not have any&f {price}&c to receive commands'
+  item: '&cYou do not have any&f {price}&c to receive&f {reward}'
+  money: '&cYou do not have any&f {price}&c to receive&a {reward}'

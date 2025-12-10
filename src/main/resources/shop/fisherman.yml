@@ -1,0 +1,116 @@
+title: '&0Fisherman'
+size: 18
+items:
+  coins:
+    slot: 18
+    display:
+      type: player_head
+      custom: '%player%'
+      amount: 1
+      name: '&f%essentials_display_name%'
+      lore:
+        - '&7coins&f:&a %essentials_account%'
+  barrier:
+    slot: 14
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  cod:
+    slot: 3
+    display:
+      type: cod
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: cod
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: cod
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  salmon:
+    slot: 4
+    display:
+      type: salmon
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: salmon
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: salmon
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  pufferfish:
+    slot: 6
+    display:
+      type: pufferfish
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €2'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 2
+      price-type: item
+      price:
+        type: pufferfish
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 2
+      price-type: itemall
+      price:
+        type: pufferfish
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  tropical_fish:
+    slot: 7
+    display:
+      type: tropical_fish
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €4'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 4
+      price-type: item
+      price:
+        type: tropical_fish
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 4
+      price-type: itemall
+      price:
+        type: tropical_fish
+      message: '&6You sold&f {price}&6 for&a {reward}'

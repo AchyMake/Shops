@@ -1,0 +1,107 @@
+title: '&0Test Shop'
+size: 54
+items:
+  barrier:
+    slot: 50
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  book:
+    slot: 1
+    display:
+      type: book
+      amount: 1
+      name: '&fClick me to Fly!'
+      lore:
+        - '&7this book can make you fly.'
+    left:
+      reward-type: command
+      reward:
+        - 'fly %player%'
+      price-type: nothing
+      message: '&6You toggle fly!'
+  unbreaking_1:
+    slot: 2
+    display:
+      type: enchanted_book
+      amount: 1
+      name: '&fClick me to get Unbreaking 1!'
+      lore:
+        - '&7this book contains unbreaking 1.'
+      enchantments:
+        unbreaking: 1
+    left:
+      reward-type: item
+      reward:
+        type: enchanted_book
+        amount: 1
+        enchantments:
+          unbreaking: 1
+      price-type: nothing
+      message: '&6You received&f Unbreaking 1 Book&6!'
+  customhead:
+    slot: 3
+    display:
+      type: player_head
+      amount: 1
+      custom: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTk4ODQxOWRkNWIzODZmNjk4YTk2OTEzZGIxZDk3YzI0MThlMTZkNDE2ZDdmNDM5ZDQ4YWNkNDFlM2E0MzZjZSJ9fX0='
+      name: 'Bookshelf'
+      lore:
+        - '&7this is a custom head.'
+    left:
+      reward-type: item
+      reward:
+        type: player_head
+        amount: 1
+        custom: 'eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTk4ODQxOWRkNWIzODZmNjk4YTk2OTEzZGIxZDk3YzI0MThlMTZkNDE2ZDdmNDM5ZDQ4YWNkNDFlM2E0MzZjZSJ9fX0='
+      price-type: nothing
+      message: '&6You reveiced a custom player head!'
+  spawner:
+    slot: 4
+    display:
+      type: spawner
+      amount: 1
+      name: 'Spawner'
+      lore:
+        - '&7this is a spawner.'
+    left:
+      reward-type: command
+      reward:
+        - 'spawner give %player% pig 1'
+      price-type: nothing
+      message: '&6You reveiced a pig spawner!'
+  permission:
+    slot: 5
+    permission: essentials.command.sethome.multiple.default
+    display:
+      type: gray_dye
+      amount: 1
+      name: '&f4 Homes'
+      lore:
+        - '&7buy price&f:&c 1 Nether Star'
+        - '&9Able to set 4 homes'
+    left:
+      reward-type: command
+      reward:
+        - 'lp user %player% permission set essentials.command.sethome.multiple.default_2 true'
+      price-type: item
+      price:
+        type: nether_star
+        amount: 1
+      message: '&6You can now set homes up to 4!'
+  permission_2:
+    slot: 5
+    permission: essentials.command.sethome.multiple.default_2
+    display:
+      type: lime_dye
+      amount: 1
+      name: '&f4 Homes'
+      lore:
+        - '&7You can set homes up to 4'

@@ -1,0 +1,27 @@
+notify-update: true
+shop:
+  main: menu
+  # for permission plugin to update player permissions
+  # example for adding permission to player with command {this should try to update after permission change if not change to higher value}
+  open-delay: 3
+sounds:
+  open:
+    type: ENTITY_VILLAGER_AMBIENT
+    volume: 0.75
+    pitch : 1.0
+  click:
+    type: UI_BUTTON_CLICK
+    volume: 0.5
+    pitch : 1.0
+  purchase:
+    type: ENTITY_VILLAGER_YES
+    volume: 0.75
+    pitch : 1.0
+  insufficient:
+    type: ENTITY_VILLAGER_NO
+    volume: 0.75
+    pitch : 1.0
+  close:
+    type: ENTITY_VILLAGER_AMBIENT
+    volume: 0.75
+    pitch : 1.0

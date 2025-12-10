@@ -1,0 +1,162 @@
+title: '&0Hunter'
+size: 18
+items:
+  coins:
+    slot: 18
+    display:
+      type: player_head
+      custom: '%player%'
+      amount: 1
+      name: '&f%essentials_display_name%'
+      lore:
+        - '&7coins&f:&a %essentials_account%'
+  barrier:
+    slot: 14
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  feather:
+    slot: 2
+    display:
+      type: feather
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: feather
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: feather
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  spider_eye:
+    slot: 3
+    display:
+      type: spider_eye
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: spider_eye
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: spider_eye
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  string:
+    slot: 4
+    display:
+      type: string
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: string
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: string
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  rotten_flesh:
+    slot: 6
+    display:
+      type: rotten_flesh
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: rotten_flesh
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: rotten_flesh
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  bone:
+    slot: 7
+    display:
+      type: bone
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: bone
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: bone
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  gunpowder:
+    slot: 8
+    display:
+      type: gunpowder
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: gunpowder
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: gunpowder
+      message: '&6You sold&f {price}&6 for&a {reward}'

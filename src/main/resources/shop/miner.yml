@@ -1,0 +1,139 @@
+title: '&0Miner'
+size: 18
+items:
+  coins:
+    slot: 18
+    display:
+      type: player_head
+      custom: '%player%'
+      amount: 1
+      name: '&f%essentials_display_name%'
+      lore:
+        - '&7coins&f:&a %essentials_account%'
+  barrier:
+    slot: 14
+    display:
+      type: barrier
+      amount: 1
+      name: '&fMenu'
+      lore:
+        - '&7Go back to Menu'
+    left:
+      reward-type: shop
+      reward: menu
+      price-type: nothing
+  copper_ingot:
+    slot: 3
+    display:
+      type: copper_ingot
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: copper_ingot
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: copper_ingot
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  iron_ingot:
+    slot: 4
+    display:
+      type: iron_ingot
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: iron_ingot
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: iron_ingot
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  gold_ingot:
+    slot: 5
+    display:
+      type: gold_ingot
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: gold_ingot
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: gold_ingot
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  redstone:
+    slot: 6
+    display:
+      type: redstone
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.5'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.5
+      price-type: item
+      price:
+        type: redstone
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.5
+      price-type: itemall
+      price:
+        type: redstone
+      message: '&6You sold&f {price}&6 for&a {reward}'
+  amethyst_shard:
+    slot: 7
+    display:
+      type: amethyst_shard
+      amount: 1
+      lore:
+        - '&7sell price&f:&a €0.25'
+        - '&9Shift + Right Click to Sell All'
+    right:
+      reward-type: money
+      reward: 0.25
+      price-type: item
+      price:
+        type: amethyst_shard
+        amount: 1
+      message: '&6You sold&f {price}&6 for&a {reward}'
+    shift_right:
+      reward-type: money
+      reward: 0.25
+      price-type: itemall
+      price:
+        type: amethyst_shard
+      message: '&6You sold&f {price}&6 for&a {reward}'

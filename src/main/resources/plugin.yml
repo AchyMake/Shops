@@ -1,0 +1,42 @@
+name: Shops
+version: '${project.version}'
+main: org.achymake.shops.Shops
+api-version: '1.21'
+prefix: '${project.name}'
+depend:
+  - Vault
+  - PlaceholderAPI
+author: AchyMake
+description: '${project.description}'
+website: '${project.url}'
+commands:
+  shop:
+    description: shop command
+    permission: shops.command.shop
+    permission-message: You do not have the permissions to execute the command
+  shops:
+    description: shops command
+    permission: shops.command.shops
+    permission-message: You do not have the permissions to execute the command
+permissions:
+  shops.command.shop:
+    description: shop command
+    default: op
+  shops.command.shop.menu:
+    description: allows to open shop menu
+    default: op
+  shops.command.shop.shopName:
+    description: allows to open shop shopName
+    default: op
+  shops.command.shop.other:
+    description: allows to open shop for others
+    default: op
+  shops.command.shop.exempt:
+    description: exempts open shop from others
+    default: op
+  shops.command.shops:
+    description: shops command
+    default: op
+  shops.event.join.update:
+    description: shop command
+    default: op
