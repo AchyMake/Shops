@@ -129,18 +129,14 @@ public class RewardHandler {
             var materialName = getMaterials().getPriceMaterial(meta, clickType);
             var material = getMaterials().get(materialName);
             if (player.getInventory().contains(material)) {
-                for (var itemStack : player.getInventory()) {
-                    if (itemStack != null && !itemStack.getItemMeta().hasEnchants() && itemStack.getType() == material) {
-                        var result = (double) itemStack.getAmount() * reward;
-                        getEconomy().depositPlayer(player, result);
-                        if (message != null) {
-                            player.sendMessage(getMessage().addColor(message
-                                    .replace("{price}", itemStack.getAmount() + " " + getMessage().toTitleCase(materialName))
-                                    .replace("{reward}", getEconomy().currencyNamePlural() + getEconomy().format(result))
-                            ));
-                        }
-                        itemStack.setAmount(itemStack.getAmount() - itemStack.getAmount());
-                    }
+                var amount = getInventoryHandler().removeItemStack(player.getInventory(), materialName);
+                var result = (double) amount * reward;
+                getEconomy().depositPlayer(player, result);
+                if (message != null) {
+                    player.sendMessage(getMessage().addColor(message
+                            .replace("{price}", amount + " " + getMessage().toTitleCase(materialName))
+                            .replace("{reward}", getEconomy().currencyNamePlural() + getEconomy().format(result))
+                    ));
                 }
                 getMaterials().open(player, shop);
                 getShop().playPurchase(player);

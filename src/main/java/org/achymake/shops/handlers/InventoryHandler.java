@@ -2,10 +2,13 @@ package org.achymake.shops.handlers;
 
 import org.achymake.shops.Shops;
 import org.achymake.shops.data.Message;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.HashMap;
 
 public class InventoryHandler {
     private Shops getInstance() {
@@ -26,11 +29,11 @@ public class InventoryHandler {
     public ItemStack hasItemStack(Inventory inventory, String materialName, int amount) {
         var material = getMaterials().get(materialName);
         if (inventory.contains(material)) {
-            var item = inventory.getItem(inventory.first(material));
-            if (item != null) {
-                if (!item.getItemMeta().hasEnchants()) {
-                    var result = item.getAmount() - amount;
-                    return item.getAmount() >= result ? item : null;
+            var itemStack = inventory.getItem(inventory.first(material));
+            if (itemStack != null) {
+                if (!itemStack.getItemMeta().hasEnchants()) {
+                    var result = itemStack.getAmount() - amount;
+                    return itemStack.getAmount() >= result ? itemStack : null;
                 } else return null;
             } else return null;
         } else return null;
@@ -42,6 +45,25 @@ public class InventoryHandler {
             itemStack.setAmount(result);
             return true;
         } else return false;
+    }
+    public int removeItemStack(Inventory inventory, String materialName) {
+        var material = getMaterials().get(materialName);
+        var result = new HashMap<Material, Integer>();
+        if (inventory.contains(material)) {
+            for (var itemStack : inventory.getStorageContents()) {
+                if (itemStack != null) {
+                    if (itemStack.getType() == material) {
+                        if (!itemStack.getItemMeta().hasEnchants()) {
+                            if (result.containsKey(material)) {
+                                result.replace(material, result.get(material) + itemStack.getAmount());
+                            } else result.put(material, itemStack.getAmount());
+                            itemStack.setAmount(0);
+                        }
+                    }
+                }
+            }
+            return result.get(material);
+        } else return 0;
     }
     public void isClicked(Player player, ItemMeta meta, Shops.ClickType clickType) {
         var rewardType = getMaterials().getRewardType(meta, clickType);
