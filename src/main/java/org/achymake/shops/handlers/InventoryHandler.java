@@ -30,11 +30,9 @@ public class InventoryHandler {
         var material = getMaterials().get(materialName);
         if (inventory.contains(material)) {
             var itemStack = inventory.getItem(inventory.first(material));
-            if (itemStack != null) {
-                if (!itemStack.getItemMeta().hasEnchants()) {
-                    var result = itemStack.getAmount() - amount;
-                    return itemStack.getAmount() >= result ? itemStack : null;
-                } else return null;
+            if (itemStack != null && !itemStack.getItemMeta().hasEnchants()) {
+                var result = itemStack.getAmount() - amount;
+                return itemStack.getAmount() >= result ? itemStack : null;
             } else return null;
         } else return null;
     }
@@ -48,21 +46,20 @@ public class InventoryHandler {
     }
     public int removeItemStack(Inventory inventory, String materialName) {
         var material = getMaterials().get(materialName);
-        var result = new HashMap<Material, Integer>();
+        var listed = new HashMap<Material, Integer>();
         if (inventory.contains(material)) {
             for (var itemStack : inventory.getStorageContents()) {
-                if (itemStack != null) {
+                if (itemStack != null && !itemStack.getItemMeta().hasEnchants()) {
                     if (itemStack.getType() == material) {
-                        if (!itemStack.getItemMeta().hasEnchants()) {
-                            if (result.containsKey(material)) {
-                                result.replace(material, result.get(material) + itemStack.getAmount());
-                            } else result.put(material, itemStack.getAmount());
-                            itemStack.setAmount(0);
-                        }
+                        if (listed.containsKey(material)) {
+                            var result = listed.get(material) + itemStack.getAmount();
+                            listed.replace(material, result);
+                        } else listed.put(material, itemStack.getAmount());
+                        itemStack.setAmount(0);
                     }
                 }
             }
-            return result.get(material);
+            return listed.get(material);
         } else return 0;
     }
     public void isClicked(Player player, ItemMeta meta, Shops.ClickType clickType) {
