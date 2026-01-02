@@ -38,26 +38,32 @@ public class MaterialHandler {
     }
     public void addEnchantments(ItemStack itemStack, Map<String, Integer> enchantmentsMap) {
         if (!enchantmentsMap.isEmpty()) {
-            if (itemStack.getType().equals(this.get("enchanted_book"))) {
+            if (itemStack.getType().equals(get("enchanted_book"))) {
                 var enchantedBook = (EnchantmentStorageMeta) itemStack.getItemMeta();
                 for(var enchantmentName : enchantmentsMap.keySet()) {
-                    enchantedBook.addStoredEnchant(getEnchantment(enchantmentName), enchantmentsMap.get(enchantmentName), true);
+                    var enchantment = getEnchantment(enchantmentName);
+                    if (enchantment != null) {
+                        enchantedBook.addStoredEnchant(enchantment, enchantmentsMap.get(enchantmentName), true);
+                    }
                 }
                 itemStack.setItemMeta(enchantedBook);
             } else {
                 var meta = itemStack.getItemMeta();
                 for(var enchantmentName : enchantmentsMap.keySet()) {
-                    meta.addEnchant(getEnchantment(enchantmentName), enchantmentsMap.get(enchantmentName), true);
+                    var enchantment = getEnchantment(enchantmentName);
+                    if (enchantment != null) {
+                        meta.addEnchant(enchantment, enchantmentsMap.get(enchantmentName), true);
+                    }
                 }
                 itemStack.setItemMeta(meta);
             }
         }
     }
     public Material get(String materialName) {
-        return Material.valueOf(materialName.toUpperCase());
+        return Material.getMaterial(materialName.toUpperCase());
     }
-    public ItemStack getItemStack(String itemName, int amount) {
-        return new ItemStack(get(itemName), amount);
+    public ItemStack getItemStack(Material material, int amount) {
+        return new ItemStack(material, amount);
     }
     public void giveItemStack(Player player, ItemStack itemStack) {
         if (itemStack != null) {

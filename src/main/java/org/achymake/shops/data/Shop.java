@@ -113,9 +113,10 @@ public class Shop {
                             var section = "items." + key;
                             var materialName = config.getString(section + ".display.type");
                             var amount = config.getInt(section + ".display.amount");
-                            var item = getMaterials().getItemStack(materialName, amount);
-                            if (item == null) {
-                                item.setType(getMaterials().get("stone"));
+                            var item = getMaterials().getItemStack(getMaterials().get("stone"), amount);
+                            var material = getMaterials().get(materialName);
+                            if (material != null) {
+                                item.setType(material);
                             }
                             var meta = item.getItemMeta();
                             if (item.getType() == getMaterials().get("spawner")) {

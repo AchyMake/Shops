@@ -164,7 +164,11 @@ public class RewardHandler {
     public void rewardItem(Player player, ItemMeta meta, Shops.ClickType clickType) {
         var type = getMaterials().getRewardMaterial(meta, clickType);
         var amount = getMaterials().getRewardMaterialAmount(meta, clickType);
-        var itemStack = getMaterials().getItemStack(type, amount);
+        var itemStack = getMaterials().getItemStack(getMaterials().get("stone"), amount);
+        var material = getMaterials().get(type);
+        if (material != null) {
+            itemStack.setType(material);
+        }
         var enchantments = getMaterials().getRewardMaterialEnchantments(meta, clickType);
         if (enchantments != null) {
             getMaterials().addEnchantments(itemStack, enchantments);
