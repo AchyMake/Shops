@@ -212,7 +212,9 @@ public class Shop {
                             }
                         }
                         player.openInventory(inventory);
-                        getInventories().put(player, inventory);
+                        if (getInventories().containsKey(player)) {
+                            getInventories().replace(player, inventory);
+                        } else getInventories().put(player, inventory);
                         return inventory;
                     } else return null;
                 } else return null;
