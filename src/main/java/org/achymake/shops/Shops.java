@@ -24,6 +24,7 @@ public final class Shops extends JavaPlugin {
     private RandomHandler randomHandler;
     private RewardHandler rewardHandler;
     private ScheduleHandler scheduleHandler;
+    private WorldHandler worldHandler;
     private UpdateChecker updateChecker;
     private BukkitScheduler bukkitScheduler;
     private PluginManager pluginManager;
@@ -41,6 +42,7 @@ public final class Shops extends JavaPlugin {
         randomHandler = new RandomHandler();
         rewardHandler = new RewardHandler();
         scheduleHandler = new ScheduleHandler();
+        worldHandler = new WorldHandler();
         updateChecker = new UpdateChecker();
         pluginManager = getServer().getPluginManager();
         bukkitScheduler = getServer().getScheduler();
@@ -88,14 +90,17 @@ public final class Shops extends JavaPlugin {
     public Economy getEconomy() {
         return economy;
     }
-    public UpdateChecker getUpdateChecker() {
-        return updateChecker;
+    public PluginManager getPluginManager() {
+        return pluginManager;
     }
     public BukkitScheduler getBukkitScheduler() {
         return bukkitScheduler;
     }
-    public PluginManager getPluginManager() {
-        return pluginManager;
+    public UpdateChecker getUpdateChecker() {
+        return updateChecker;
+    }
+    public WorldHandler getWorldHandler() {
+        return worldHandler;
     }
     public ScheduleHandler getScheduleHandler() {
         return scheduleHandler;
@@ -124,6 +129,9 @@ public final class Shops extends JavaPlugin {
     public static Shops getInstance() {
         return instance;
     }
+    public NamespacedKey getKey(String key) {
+        return new NamespacedKey(this, key);
+    }
     public boolean isBukkit() {
         return getMinecraftProvider().equals("Bukkit") || getMinecraftProvider().equals("CraftBukkit");
     }
@@ -144,9 +152,6 @@ public final class Shops extends JavaPlugin {
     }
     public String getMinecraftProvider() {
         return getServer().getName();
-    }
-    public NamespacedKey getKey(String key) {
-        return new NamespacedKey(this, key);
     }
     public enum ClickType {
         left,

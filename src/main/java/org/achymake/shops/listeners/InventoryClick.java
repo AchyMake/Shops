@@ -22,7 +22,7 @@ public class InventoryClick implements Listener {
     private InventoryHandler getInventoryHandler() {
         return getInstance().getInventoryHandler();
     }
-    private MaterialHandler getMaterials() {
+    private MaterialHandler getMaterialHandler() {
         return getInstance().getMaterialHandler();
     }
     private PluginManager getPluginManager() {
@@ -38,21 +38,22 @@ public class InventoryClick implements Listener {
         var inventory = event.getInventory();
         var player = (Player) event.getWhoClicked();
         if (!getShop().hasInventoryOpen(player))return;
-        var shop = getShop().getInventories().get(player);
+        var shop = getInventoryHandler().getInventories().get(player);
         if (inventory != shop)return;
         event.setCancelled(true);
         if (clickedInventory != inventory)return;
         var item = event.getClickedInventory().getItem(event.getSlot());
         if (item == null)return;
         var meta = item.getItemMeta();
-        if (!getMaterials().hasData(meta))return;
-        if (event.getClick().equals(ClickType.LEFT)) {
+        if (!getMaterialHandler().hasData(meta))return;
+        var clickType = event.getClick();
+        if (clickType.equals(ClickType.LEFT)) {
             getInventoryHandler().isClicked(player, meta, Shops.ClickType.left);
-        } else if (event.getClick().equals(ClickType.SHIFT_LEFT)) {
+        } else if (clickType.equals(ClickType.SHIFT_LEFT)) {
             getInventoryHandler().isClicked(player, meta, Shops.ClickType.shift_left);
-        } else if (event.getClick().equals(ClickType.RIGHT)) {
+        } else if (clickType.equals(ClickType.RIGHT)) {
             getInventoryHandler().isClicked(player, meta, Shops.ClickType.right);
-        } else if (event.getClick().equals(ClickType.SHIFT_RIGHT)) {
+        } else if (clickType.equals(ClickType.SHIFT_RIGHT)) {
             getInventoryHandler().isClicked(player, meta, Shops.ClickType.shift_right);
         }
     }

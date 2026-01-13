@@ -9,12 +9,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class InventoryHandler {
+    private final Map<Player, Inventory> inventories = new HashMap<>();
     private Shops getInstance() {
         return Shops.getInstance();
     }
-    private MaterialHandler getMaterials() {
+    private MaterialHandler getMaterialHandler() {
         return getInstance().getMaterialHandler();
     }
     private RewardHandler getRewardHandler() {
@@ -27,7 +29,7 @@ public class InventoryHandler {
         return getInstance().getServer().createInventory(player, size, title);
     }
     public ItemStack hasItemStack(Inventory inventory, String materialName, int amount) {
-        var material = getMaterials().get(materialName);
+        var material = getMaterialHandler().get(materialName);
         if (inventory.contains(material)) {
             var itemStack = inventory.getItem(inventory.first(material));
             if (itemStack != null && !itemStack.getItemMeta().hasEnchants()) {
@@ -45,7 +47,7 @@ public class InventoryHandler {
         } else return false;
     }
     public int removeItemStack(Inventory inventory, String materialName) {
-        var material = getMaterials().get(materialName);
+        var material = getMaterialHandler().get(materialName);
         var listed = new HashMap<Material, Integer>();
         if (inventory.contains(material)) {
             for (var itemStack : inventory.getStorageContents()) {
@@ -63,8 +65,8 @@ public class InventoryHandler {
         } else return 0;
     }
     public void isClicked(Player player, ItemMeta meta, Shops.ClickType clickType) {
-        var rewardType = getMaterials().getRewardType(meta, clickType);
-        var message = getMaterials().getMessage(meta, clickType);
+        var rewardType = getMaterialHandler().getRewardType(meta, clickType);
+        var message = getMaterialHandler().getMessage(meta, clickType);
         if (rewardType.equals(Shops.RewardType.shop)) {
             getRewardHandler().rewardShop(player, meta, clickType);
         } else if (rewardType.equals(Shops.RewardType.money)) {
@@ -74,10 +76,13 @@ public class InventoryHandler {
         } else if (rewardType.equals(Shops.RewardType.command)) {
             getRewardHandler().rewardCommand(player, meta, clickType);
         } else if (rewardType.equals(Shops.RewardType.nothing)) {
-            getMaterials().open(player, getMaterials().getShop(meta));
+            getMaterialHandler().open(player, getMaterialHandler().getShop(meta));
             if (message != null) {
                 player.sendMessage(getMessage().addColor(message));
             }
         }
+    }
+    public Map<Player, Inventory> getInventories() {
+        return inventories;
     }
 }

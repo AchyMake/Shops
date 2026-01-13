@@ -4,6 +4,7 @@ shop:
   # for permission plugin to update player permissions
   # example for adding permission to player with command {this should try to update after permission change if not change to higher value}
   open-delay: 3
+format: '#,##0.00'
 sounds:
   open:
     type: ENTITY_VILLAGER_AMBIENT

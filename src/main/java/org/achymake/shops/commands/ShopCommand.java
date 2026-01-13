@@ -26,11 +26,12 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player player) {
             if (args.length == 0) {
-                if (getShop().exists(getShop().getMainShop())) {
-                    getShop().open(player, getShop().getMainShop());
+                var mainShop = getShop().getMainShop();
+                if (getShop().exists(mainShop)) {
+                    getShop().open(player, mainShop);
                     getShop().playOpen(player);
                 } else player.sendMessage(getMessage().get("error.shop.invalid")
-                        .replace("{shop}", getShop().getMainShop()));
+                        .replace("{shop}", mainShop));
             } else if (args.length == 1) {
                 var shop = args[0];
                 if (getShop().exists(shop)) {
@@ -85,13 +86,15 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
         if (sender instanceof Player player) {
             if (args.length == 1) {
                 for(var shopName : getShop().getListed()) {
-                    if (player.hasPermission("shops.command.shop." + shopName) && shopName.startsWith(args[0])) {
-                        commands.add(shopName);
+                    if (player.hasPermission("shops.command.shop." + shopName)) {
+                        if (shopName.startsWith(args[0])) {
+                            commands.add(shopName);
+                        }
                     }
                 }
             } else if (args.length == 2 && player.hasPermission("shops.command.shop.other")) {
                 getInstance().getOnlinePlayers().forEach((target) -> {
-                    if (!target.isSilent() && target.getName().startsWith(args[1])) {
+                    if (target.getName().startsWith(args[1])) {
                         commands.add(target.getName());
                     }
                 });

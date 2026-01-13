@@ -2,6 +2,7 @@ package org.achymake.shops.listeners;
 
 import org.achymake.shops.Shops;
 import org.achymake.shops.data.Shop;
+import org.achymake.shops.handlers.InventoryHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -16,6 +17,9 @@ public class InventoryClose implements Listener {
     private Shop getShop() {
         return getInstance().getShop();
     }
+    private InventoryHandler getInventoryHandler() {
+        return getInstance().getInventoryHandler();
+    }
     private PluginManager getPluginManager() {
         return getInstance().getPluginManager();
     }
@@ -26,7 +30,7 @@ public class InventoryClose implements Listener {
     public void onInventoryClose(InventoryCloseEvent event) {
         var player = (Player) event.getPlayer();
         if (!getShop().hasInventoryOpen(player))return;
-        if (getShop().getInventories().get(player) != event.getInventory())return;
+        if (getInventoryHandler().getInventories().get(player) != event.getInventory())return;
         getShop().close(player);
         getShop().playClose(player);
     }

@@ -18,10 +18,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Shop {
-    private final Map<Player, Inventory> inventories = new HashMap<>();
     private Shops getInstance() {
         return Shops.getInstance();
     }
@@ -31,7 +29,7 @@ public class Shop {
     private InventoryHandler getInventoryHandler() {
         return getInstance().getInventoryHandler();
     }
-    private MaterialHandler getMaterials() {
+    private MaterialHandler getMaterialHandler() {
         return getInstance().getMaterialHandler();
     }
     private RandomHandler getRandomHandler() {
@@ -57,48 +55,43 @@ public class Shop {
     }
     public void playOpen(Player player) {
         var type = getConfig().getString("sounds.open.type");
-        if (type != null) {
-            if (type.isEmpty())return;
-            var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.open.volume"));
-            var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.open.pitch"));
-            player.playSound(player, Sound.valueOf(type), volume, pitch);
-        }
+        if (type == null)return;
+        if (type.isEmpty())return;
+        var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.open.volume"));
+        var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.open.pitch"));
+        player.playSound(player, Sound.valueOf(type), volume, pitch);
     }
     public void playPurchase(Player player) {
         var type = getConfig().getString("sounds.purchase.type");
-        if (type != null) {
-            if (type.isEmpty())return;
-            var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.purchase.volume"));
-            var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.purchase.pitch"));
-            player.playSound(player, Sound.valueOf(type), volume, pitch);
-        }
+        if (type == null)return;
+        if (type.isEmpty())return;
+        var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.purchase.volume"));
+        var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.purchase.pitch"));
+        player.playSound(player, Sound.valueOf(type), volume, pitch);
     }
     public void playClick(Player player) {
         var type = getConfig().getString("sounds.click.type");
-        if (type != null) {
-            if (type.isEmpty())return;
-            var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.click.volume"));
-            var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.click.pitch"));
-            player.playSound(player, Sound.valueOf(type), volume, pitch);
-        }
+        if (type == null)return;
+        if (type.isEmpty())return;
+        var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.click.volume"));
+        var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.click.pitch"));
+        player.playSound(player, Sound.valueOf(type), volume, pitch);
     }
     public void playInsufficient(Player player) {
         var type = getConfig().getString("sounds.insufficient.type");
-        if (type != null) {
-            if (type.isEmpty())return;
-            var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.insufficient.volume"));
-            var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.insufficient.pitch"));
-            player.playSound(player, Sound.valueOf(type), volume, pitch);
-        }
+        if (type == null)return;
+        if (type.isEmpty())return;
+        var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.insufficient.volume"));
+        var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.insufficient.pitch"));
+        player.playSound(player, Sound.valueOf(type), volume, pitch);
     }
     public void playClose(Player player) {
         var type = getConfig().getString("sounds.close.type");
-        if (type != null) {
-            if (type.isEmpty())return;
-            var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.close.volume"));
-            var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.close.pitch"));
-            player.playSound(player, Sound.valueOf(type), volume, pitch);
-        }
+        if (type == null)return;
+        if (type.isEmpty())return;
+        var volume = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.close.volume"));
+        var pitch = getRandomHandler().makeRandom((float) getConfig().getDouble("sounds.close.pitch"));
+        player.playSound(player, Sound.valueOf(type), volume, pitch);
     }
     public Inventory open(Player player, String shop) {
         if (exists(shop)) {
@@ -107,19 +100,19 @@ public class Shop {
                 var size = config.getInt("size");
                 if (size == 9 || size == 18 || size == 27 || size == 36 || size == 45 || size == 54) {
                     if (config.isConfigurationSection("items")) {
-                        getInventories().remove(player);
+                        getInventoryHandler().getInventories().remove(player);
                         var inventory = getInventoryHandler().createInventory(player, size, getMessage().addColor(config.getString("title")));
                         for(var key : config.getConfigurationSection("items").getKeys(false)) {
                             var section = "items." + key;
                             var materialName = config.getString(section + ".display.type");
                             var amount = config.getInt(section + ".display.amount");
-                            var item = getMaterials().getItemStack(getMaterials().get("stone"), amount);
-                            var material = getMaterials().get(materialName);
+                            var item = getMaterialHandler().getItemStack(getMaterialHandler().get("stone"), amount);
+                            var material = getMaterialHandler().get(materialName);
                             if (material != null) {
                                 item.setType(material);
                             }
                             var meta = item.getItemMeta();
-                            if (item.getType() == getMaterials().get("spawner")) {
+                            if (item.getType() == getMaterialHandler().get("spawner")) {
                                 meta.addItemFlags(ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
                             }
                             if (config.isString(section + ".permission") && !player.hasPermission(config.getString(section + ".permission"))) {
@@ -128,16 +121,16 @@ public class Shop {
                             if (item.getAmount() > 0) {
                                 var index = config.getInt(section + ".slot") - 1;
                                 var name = config.getString(section + ".display.name");
-                                getMaterials().setString(meta, "shop", shop);
+                                getMaterialHandler().setString(meta, "shop", shop);
                                 if (name != null) {
                                     var displayName = getMessage().addPlaceholder(player, name);
                                     meta.setDisplayName(displayName);
-                                    getMaterials().setString(meta, "display-name", displayName);
+                                    getMaterialHandler().setString(meta, "display-name", displayName);
                                 }
                                 if (materialName.equalsIgnoreCase("player_head")) {
                                     var skullKey = config.getString(section + ".display.custom");
                                     if (skullKey != null) {
-                                        getMaterials().getCustomHead(player, meta, name, skullKey);
+                                        getMaterialHandler().getCustomHead(player, meta, name, skullKey);
                                     }
                                 }
                                 var list = config.getStringList(section + ".display.lore");
@@ -156,65 +149,63 @@ public class Shop {
                                 for (var clickType : Shops.ClickType.values()) {
                                     var message = config.getString(section + "." + clickType + ".message");
                                     if (message != null) {
-                                        getMaterials().setString(meta, clickType + ".message", message);
+                                        getMaterialHandler().setString(meta, clickType + ".message", message);
                                     }
                                     var rewardType = config.getString(section + "." + clickType + ".reward-type");
                                     if (rewardType != null) {
                                         if (rewardType.equalsIgnoreCase("shop")) {
-                                            getMaterials().setString(meta, clickType + ".reward-type", "shop");
-                                            getMaterials().setString(meta, clickType + ".reward", config.getString(section + "." + clickType + ".reward"));
+                                            getMaterialHandler().setString(meta, clickType + ".reward-type", "shop");
+                                            getMaterialHandler().setString(meta, clickType + ".reward", config.getString(section + "." + clickType + ".reward"));
                                         } else if (rewardType.equalsIgnoreCase("money")) {
-                                            getMaterials().setString(meta, clickType + ".reward-type", "money");
-                                            getMaterials().setDouble(meta, clickType + ".reward", config.getDouble(section + "." + clickType + ".reward"));
+                                            getMaterialHandler().setString(meta, clickType + ".reward-type", "money");
+                                            getMaterialHandler().setDouble(meta, clickType + ".reward", config.getDouble(section + "." + clickType + ".reward"));
                                         } else if (rewardType.equalsIgnoreCase("item")) {
-                                            getMaterials().setString(meta, clickType + ".reward-type", "item");
-                                            getMaterials().setString(meta, clickType + ".reward.type", config.getString(section + "." + clickType + ".reward.type"));
-                                            getMaterials().setInt(meta, clickType + ".reward.amount", config.getInt(section + "." + clickType + ".reward.amount"));
+                                            getMaterialHandler().setString(meta, clickType + ".reward-type", "item");
+                                            getMaterialHandler().setString(meta, clickType + ".reward.type", config.getString(section + "." + clickType + ".reward.type"));
+                                            getMaterialHandler().setInt(meta, clickType + ".reward.amount", config.getInt(section + "." + clickType + ".reward.amount"));
                                             if (config.isString(section + "." + clickType + ".reward.custom")) {
-                                                getMaterials().setString(meta, clickType + ".reward.skull", config.getString(section + "." + clickType + ".reward.custom"));
+                                                getMaterialHandler().setString(meta, clickType + ".reward.skull", config.getString(section + "." + clickType + ".reward.custom"));
                                             }
                                             if (config.isConfigurationSection(section + "." + clickType + ".reward.enchantments")) {
                                                 var listed = new HashMap<>();
                                                 config.getConfigurationSection(section + "." + clickType + ".reward.enchantments").getKeys(false).forEach((enchantmentName) -> listed.put(enchantmentName, config.getInt(section + "." + clickType + ".reward.enchantments." + enchantmentName)));
-                                                getMaterials().setString(meta, clickType + ".reward.enchantments", listed.toString());
+                                                getMaterialHandler().setString(meta, clickType + ".reward.enchantments", listed.toString());
                                             }
                                         } else if (rewardType.equalsIgnoreCase("itemall")) {
-                                            getMaterials().setString(meta, clickType + ".reward-type", "itemall");
-                                            getMaterials().setString(meta, clickType + ".reward.type", config.getString(section + "." + clickType + ".reward.type"));
+                                            getMaterialHandler().setString(meta, clickType + ".reward-type", "itemall");
+                                            getMaterialHandler().setString(meta, clickType + ".reward.type", config.getString(section + "." + clickType + ".reward.type"));
                                         } else if (rewardType.equalsIgnoreCase("command")) {
-                                            getMaterials().setString(meta, clickType + ".reward-type", "command");
-                                            getMaterials().setString(meta, clickType + ".reward", config.getStringList(section + "." + clickType + ".reward").toString());
+                                            getMaterialHandler().setString(meta, clickType + ".reward-type", "command");
+                                            getMaterialHandler().setString(meta, clickType + ".reward", config.getStringList(section + "." + clickType + ".reward").toString());
                                         } else if (rewardType.equalsIgnoreCase("nothing")) {
-                                            getMaterials().setString(meta, clickType + ".reward-type", "nothing");
+                                            getMaterialHandler().setString(meta, clickType + ".reward-type", "nothing");
                                         }
-                                    } else getMaterials().setString(meta, clickType + ".reward-type", "nothing");
+                                    } else getMaterialHandler().setString(meta, clickType + ".reward-type", "nothing");
                                     var priceType = config.getString(section + "." + clickType + ".price-type");
                                     if (priceType != null) {
                                         if (priceType.equalsIgnoreCase("nothing")) {
-                                            getMaterials().setString(meta, clickType + ".price-type", "nothing");
+                                            getMaterialHandler().setString(meta, clickType + ".price-type", "nothing");
                                         } else if (priceType.equalsIgnoreCase("money")) {
-                                            getMaterials().setString(meta, clickType + ".price-type", "money");
-                                            getMaterials().setDouble(meta, clickType + ".price", config.getDouble(section + "." + clickType + ".price"));
+                                            getMaterialHandler().setString(meta, clickType + ".price-type", "money");
+                                            getMaterialHandler().setDouble(meta, clickType + ".price", config.getDouble(section + "." + clickType + ".price"));
                                         } else if (priceType.equalsIgnoreCase("item")) {
-                                            getMaterials().setString(meta, clickType + ".price-type", "item");
-                                            getMaterials().setString(meta, clickType + ".price.type", config.getString(section + "." + clickType + ".price.type"));
-                                            getMaterials().setInt(meta, clickType + ".price.amount", config.getInt(section + "." + clickType + ".price.amount"));
+                                            getMaterialHandler().setString(meta, clickType + ".price-type", "item");
+                                            getMaterialHandler().setString(meta, clickType + ".price.type", config.getString(section + "." + clickType + ".price.type"));
+                                            getMaterialHandler().setInt(meta, clickType + ".price.amount", config.getInt(section + "." + clickType + ".price.amount"));
                                         } else if (priceType.equalsIgnoreCase("itemall")) {
-                                            getMaterials().setString(meta, clickType + ".price-type", "itemall");
-                                            getMaterials().setString(meta, clickType + ".price.type", config.getString(section + "." + clickType + ".price.type"));
+                                            getMaterialHandler().setString(meta, clickType + ".price-type", "itemall");
+                                            getMaterialHandler().setString(meta, clickType + ".price.type", config.getString(section + "." + clickType + ".price.type"));
                                         } else if (priceType.equalsIgnoreCase("nothing")) {
-                                            getMaterials().setString(meta, clickType + ".price-type", "nothing");
+                                            getMaterialHandler().setString(meta, clickType + ".price-type", "nothing");
                                         }
-                                    } else getMaterials().setString(meta, clickType + ".price-type", "nothing");
+                                    } else getMaterialHandler().setString(meta, clickType + ".price-type", "nothing");
                                 }
                                 item.setItemMeta(meta);
                                 inventory.setItem(index, item);
                             }
                         }
                         player.openInventory(inventory);
-                        if (getInventories().containsKey(player)) {
-                            getInventories().replace(player, inventory);
-                        } else getInventories().put(player, inventory);
+                        getInventoryHandler().getInventories().put(player, inventory);
                         return inventory;
                     } else return null;
                 } else return null;
@@ -222,13 +213,16 @@ public class Shop {
         } else return null;
     }
     public void close(Player player) {
-        getInventories().remove(player);
+        getInventoryHandler().getInventories().remove(player);
     }
     public void reload() {
         var folder = new File(getInstance().getDataFolder(), "shop");
         if (folder.exists() && folder.isDirectory()) {
-            for(var file : folder.listFiles()) {
-                if (file.exists() && file.isFile()) {
+            var files = folder.listFiles();
+            if (files != null) {
+                for(var file : files) {
+                    if (!file.exists())return;
+                    if (!file.isFile())return;
                     var config = YamlConfiguration.loadConfiguration(file);
                     try {
                         config.load(file);
@@ -250,21 +244,21 @@ public class Shop {
         }
     }
     public boolean hasInventoryOpen(Player player) {
-        return getInventories().containsKey(player);
+        return getInventoryHandler().getInventories().containsKey(player);
     }
     public List<String> getListed() {
         var listed = new ArrayList<String>();
         var folder = new File(getInstance().getDataFolder(), "shop");
         if (folder.exists() && folder.isDirectory()) {
-            for(var file : folder.listFiles()) {
-                if (file.exists() && file.isFile()) {
-                    listed.add(file.getName().replace(".yml", ""));
+            var files = folder.listFiles();
+            if (files != null) {
+                for(var file : files) {
+                    if (file.exists() && file.isFile()) {
+                        listed.add(file.getName().replace(".yml", ""));
+                    }
                 }
             }
         }
         return listed;
-    }
-    public Map<Player, Inventory> getInventories() {
-        return inventories;
     }
 }

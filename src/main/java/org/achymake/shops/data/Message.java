@@ -99,7 +99,7 @@ public class Message {
     public StringBuilder getBuilder() {
         return new StringBuilder();
     }
-    public String format(int amount) {
-        return (new DecimalFormat("#,##0")).format(amount);
+    public String format(double amount) {
+        return new DecimalFormat(getInstance().getConfig().getString("format")).format(amount);
     }
 }
