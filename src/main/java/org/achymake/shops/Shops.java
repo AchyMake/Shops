@@ -44,8 +44,8 @@ public final class Shops extends JavaPlugin {
         scheduleHandler = new ScheduleHandler();
         worldHandler = new WorldHandler();
         updateChecker = new UpdateChecker();
-        pluginManager = getServer().getPluginManager();
         bukkitScheduler = getServer().getScheduler();
+        pluginManager = getServer().getPluginManager();
         commands();
         events();
         reload();

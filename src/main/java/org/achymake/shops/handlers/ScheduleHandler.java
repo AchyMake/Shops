@@ -8,23 +8,23 @@ public class ScheduleHandler {
     private Shops getInstance() {
         return Shops.getInstance();
     }
-    private BukkitScheduler getScheduler() {
+    private BukkitScheduler getBukkitScheduler() {
         return getInstance().getBukkitScheduler();
     }
     public BukkitTask runLater(Runnable runnable, long timer) {
-        return getScheduler().runTaskLater(getInstance(), runnable, timer);
+        return getBukkitScheduler().runTaskLater(getInstance(), runnable, timer);
     }
     public BukkitTask runAsynchronously(Runnable runnable) {
-        return getScheduler().runTaskAsynchronously(getInstance(), runnable);
+        return getBukkitScheduler().runTaskAsynchronously(getInstance(), runnable);
     }
     public boolean isQueued(int taskID) {
-        return getScheduler().isQueued(taskID);
+        return getBukkitScheduler().isQueued(taskID);
     }
     public void cancel(int taskID) {
         if (!isQueued(taskID))return;
-        getScheduler().cancelTask(taskID);
+        getBukkitScheduler().cancelTask(taskID);
     }
     public void disable() {
-        getScheduler().cancelTasks(getInstance());
+        getBukkitScheduler().cancelTasks(getInstance());
     }
 }
