@@ -16,14 +16,14 @@ public class InventoryHandler {
     private Shops getInstance() {
         return Shops.getInstance();
     }
+    private Message getMessage() {
+        return getInstance().getMessage();
+    }
     private MaterialHandler getMaterialHandler() {
         return getInstance().getMaterialHandler();
     }
     private RewardHandler getRewardHandler() {
         return getInstance().getRewardHandler();
-    }
-    private Message getMessage() {
-        return getInstance().getMessage();
     }
     public Inventory createInventory(Player player, int size, String title) {
         return getInstance().getServer().createInventory(player, size, title);

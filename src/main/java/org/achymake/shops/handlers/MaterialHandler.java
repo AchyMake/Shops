@@ -24,6 +24,9 @@ public class MaterialHandler {
     private NamespacedKey getKey(String key) {
         return getInstance().getKey(key);
     }
+    private Message getMessage() {
+        return getInstance().getMessage();
+    }
     private Shop getShop() {
         return getInstance().getShop();
     }
@@ -35,9 +38,6 @@ public class MaterialHandler {
     }
     private WorldHandler getWorldHandler() {
         return getInstance().getWorldHandler();
-    }
-    private Message getMessage() {
-        return getInstance().getMessage();
     }
     public Material get(String materialName) {
         return Material.getMaterial(materialName.toUpperCase());
@@ -117,7 +117,7 @@ public class MaterialHandler {
         }
     }
     public void open(Player player, String shop) {
-        getScheduleHandler().runLater(() -> getShop().open(player, shop), getShop().getDelay());
+        getScheduleHandler().runTaskLater(() -> getShop().open(player, shop), getShop().getDelay());
     }
     public String getMessage(ItemMeta itemMeta, Shops.ClickType clickType) {
         return getData(itemMeta).get(getKey(clickType.toString() + ".message"), PersistentDataType.STRING);

@@ -21,14 +21,22 @@ public class ShopsCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player player) {
-            if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
-                getInstance().reload();
-                player.sendMessage(getMessage().addColor("&6" + getInstance().name() + "&f: reloaded"));
+            if (args.length == 0) {
+                player.sendMessage(getMessage().addColor("&6" + getInstance().name() + "&f: " + getInstance().version()));
+            } else if (args.length == 1) {
+                if (args[0].equalsIgnoreCase("reload")) {
+                    getInstance().reload();
+                    player.sendMessage(getMessage().addColor("&6" + getInstance().name() + "&f: reloaded"));
+                }
             }
         } else if (sender instanceof ConsoleCommandSender consoleCommandSender) {
-            if (args[0].equalsIgnoreCase("reload")) {
-                getInstance().reload();
-                consoleCommandSender.sendMessage(getInstance().name() + ": reloaded");
+            if (args.length == 0) {
+                consoleCommandSender.sendMessage(getInstance().name() + ": " + getInstance().version());
+            } else if (args.length == 1) {
+                if (args[0].equalsIgnoreCase("reload")) {
+                    getInstance().reload();
+                    consoleCommandSender.sendMessage(getInstance().name() + ": reloaded");
+                }
             }
         }
         return false;
@@ -36,8 +44,10 @@ public class ShopsCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         var commands = new ArrayList<String>();
-        if (sender instanceof Player && args.length == 1) {
-            commands.add("reload");
+        if (sender instanceof Player) {
+            if (args.length == 1) {
+                commands.add("reload");
+            }
         }
         return commands;
     }

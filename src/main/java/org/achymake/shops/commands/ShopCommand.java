@@ -13,11 +13,11 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
     private Shops getInstance() {
         return Shops.getInstance();
     }
-    private Shop getShop() {
-        return getInstance().getShop();
-    }
     private Message getMessage() {
         return getInstance().getMessage();
+    }
+    private Shop getShop() {
+        return getInstance().getShop();
     }
     public ShopCommand() {
         getInstance().getCommand("shop").setExecutor(this);

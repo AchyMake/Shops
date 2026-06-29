@@ -6,7 +6,7 @@
 
     <groupId>org.achymake</groupId>
     <artifactId>Shops</artifactId>
-    <version>26.1.2-8</version>
+    <version>26.1.2-9</version>
     <packaging>jar</packaging>
 
     <name>Shops</name>
@@ -57,10 +57,6 @@
             <url>https://repo.papermc.io/repository/maven-public/</url>
         </repository>
         <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-        </repository>
-        <repository>
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
@@ -74,7 +70,7 @@
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
-            <version>26.1.2.build.63-stable</version>
+            <version>26.1.2.build.72-stable</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

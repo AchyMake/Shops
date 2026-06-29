@@ -26,6 +26,9 @@ public class Shop {
     private FileConfiguration getConfig() {
         return getInstance().getConfig();
     }
+    private Message getMessage() {
+        return getInstance().getMessage();
+    }
     private InventoryHandler getInventoryHandler() {
         return getInstance().getInventoryHandler();
     }
@@ -34,9 +37,6 @@ public class Shop {
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
-    }
-    private Message getMessage() {
-        return getInstance().getMessage();
     }
     private File getFile(String shop) {
         return new File(getInstance().getDataFolder(), "shop/" + shop + ".yml");

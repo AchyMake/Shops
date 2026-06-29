@@ -11,6 +11,9 @@ public class RewardHandler {
     private Shops getInstance() {
         return Shops.getInstance();
     }
+    private Message getMessage() {
+        return getInstance().getMessage();
+    }
     private Shop getShop() {
         return getInstance().getShop();
     }
@@ -22,9 +25,6 @@ public class RewardHandler {
     }
     private Economy getEconomy() {
         return getInstance().getEconomy();
-    }
-    private Message getMessage() {
-        return getInstance().getMessage();
     }
     public void rewardShop(Player player, ItemMeta meta, Shops.ClickType clickType) {
         var priceType = getMaterialHandler().getPriceType(meta, clickType);
