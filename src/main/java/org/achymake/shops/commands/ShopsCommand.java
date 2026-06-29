@@ -23,19 +23,23 @@ public class ShopsCommand implements CommandExecutor, TabCompleter {
         if (sender instanceof Player player) {
             if (args.length == 0) {
                 player.sendMessage(getMessage().addColor("&6" + getInstance().name() + "&f: " + getInstance().version()));
+                return true;
             } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("reload")) {
                     getInstance().reload();
                     player.sendMessage(getMessage().addColor("&6" + getInstance().name() + "&f: reloaded"));
+                    return true;
                 }
             }
         } else if (sender instanceof ConsoleCommandSender consoleCommandSender) {
             if (args.length == 0) {
                 consoleCommandSender.sendMessage(getInstance().name() + ": " + getInstance().version());
+                return true;
             } else if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("reload")) {
                     getInstance().reload();
                     consoleCommandSender.sendMessage(getInstance().name() + ": reloaded");
+                    return true;
                 }
             }
         }

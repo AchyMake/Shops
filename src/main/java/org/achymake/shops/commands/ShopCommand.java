@@ -32,6 +32,7 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
                     getShop().playOpen(player);
                 } else player.sendMessage(getMessage().get("error.shop.invalid")
                         .replace("{shop}", mainShop));
+                return true;
             } else if (args.length == 1) {
                 var shop = args[0];
                 if (getShop().exists(shop)) {
@@ -41,6 +42,7 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
                     }
                 } else player.sendMessage(getMessage().get("error.shop.invalid")
                         .replace("{shop}", shop));
+                return true;
             } else if (args.length == 2 && player.hasPermission("shops.command.shop.other")) {
                 var shop = args[0];
                 var username = args[1];
@@ -62,6 +64,7 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
                             .replace("{shop}", username));
                 } else player.sendMessage(getMessage().get("error.target.invalid")
                         .replace("{target}", username));
+                return true;
             }
         } else if (sender instanceof ConsoleCommandSender consoleCommandSender) {
             if (args.length == 2) {
@@ -76,6 +79,7 @@ public class ShopCommand implements CommandExecutor, TabCompleter {
                             .replace("{shop}", shop));
                 } else consoleCommandSender.sendMessage(getMessage().get("error.target.invalid")
                         .replace("{target}", username));
+                return true;
             }
         }
         return false;
